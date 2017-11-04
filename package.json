@@ -1,0 +1,29 @@
+{
+  "name": "flockinternscreen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/judgejab/flockInternScreen.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/judgejab/flockInternScreen/issues"
+  },
+  "homepage": "https://github.com/judgejab/flockInternScreen#readme",
+  "devDependencies": {
+    "eslint": "^4.10.0",
+    "eslint-config-expo": "^6.0.0",
+    "nodemon": "^1.12.1",
+    "prettier": "^1.7.4"
+  },
+  "dependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1"
+  }
+}
