@@ -7,16 +7,19 @@ describe('myFunction', () => {
       ['I', ['love'], [[['awesome', 'shiny']]], 'drones'],
       ['I', ['hate'], [[['magenta', 'dirty']]], 'drains']
     ).should.equal(97);
+
+    myFunction(
+      [['James'], ['only'], [['likes', 'broken']], 'drones'],
+      [['Jonny'], ['just'], [['loves', 'badass']], 'robots']
+    ).should.equal(49);
   });
 
-  it('If the levels of nesting or the lengths of the strings do not match, return -1', () => {
+  it('If the levels of nesting, or the lengths of the strings/arrays do not match, return -1', () => {
     myFunction(
       ['I', ['love'], [['awesome']], 'drones'],
       ['I', ['hate'], [[['magenta']]], 'drains']
     ).should.equal(-1);
-  });
 
-  it('If the lengths of any fragment differ, return -1', () => {
     myFunction(
       ['I', ['adore'], [[['red']]], 'drones'],
       ['I', ['hate'], [[['magenta']]], 'drains']
