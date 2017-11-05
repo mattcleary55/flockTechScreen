@@ -8,32 +8,41 @@ yourFunction(
 ["I", ["love"], [[["awesome", "shiny"]]], "drones"],
 ["I", ["hate"], [[["magenta", "dirty"]]], "drains"]
 )
+
 should return 2(3) + 8(7 + 4) + 3 = 97
 */
 
 function myFunction(arr1, arr2) {
-  let nestLevelsArray = [];
-  let substitutionCountsArray = [];
-
   if (!checkIfBothArrays(arr1, arr2) && !checkLengthsMatch(arr1, arr2)) return -1;
 
-  /*
-I need to:
-  - to simulataenously iterate through both arrays
-  - if both elements are strings but not same length, then I return -1
-  - if both elements are strings and ARE the same length,
-    then call compareStrings() with them and push the diffCharCount onto the substitutionCountsArray and push 0 onto nestLevelsArray
-  - if both elements are arrays and same length then go inside and compareStrings,
-    push the diffCharCounts on and add the level of nesting onto the nestLevelsArray
-*/
+  let total = 0;
+  let diffCount = 0;
+  let nestLevel = 0;
 
-  return doTheMath(nestLevelsArray, substitutionCountsArray);
+  let check = worldsWorstFunction(arr1, arr2);
+
+  if (check === -1) return -1;
+
+  return total;
+
+  function worldsWorstFunction(arg1, arg2) {
+    if (!checkIfBothArrays(arg1, arg2)) {
+      if (!checkLengthsMatch(arg1, arg2) || !checkIfBothStrings(arg1, arg2)) return -1;
+      diffCount = compareStrings(arg1, arg2);
+      total += diffCount * Math.pow(2, nestLevel);
+    } else {
+      nestLevel++;
+      if (!checkLengthsMatch(arg1, arg2)) return -1;
+      for (let i = 0; i < arg1.length; i++) {
+        worldsWorstFunction(arg1[i], arg2[i]);
+      }
+    }
+  }
 
   function compareStrings(str1, str2) {
+    if (str1.length !== str2.length) return -1;
     let diffCharCount = 0;
-    for (let i = 0; i < str1.length; i++) {
-      if (str1[i] !== str2[i]) diffCharCount++;
-    }
+    for (let i = 0; i < str1.length; i++) if (str1[i] !== str2[i]) diffCharCount++;
     return diffCharCount;
   }
 
@@ -45,21 +54,8 @@ I need to:
     return Array.isArray(arg1) && Array.isArray(arg2);
   }
 
-  function doTheMath(nestLevels, subCounts) {
-    let total = 0;
-
-    for (let i = 0; i < subCounts.length; i++) {
-      let count = 0;
-      if (Array.isArray(subCounts[i])) {
-        subCounts[i].forEach(digit => {
-          count += digit;
-        });
-      } else count = subCounts[i];
-
-      total += count * Math.pow(2, nestLevels[i]);
-    }
-
-    return total;
+  function checkIfBothStrings(arg1, arg2) {
+    return typeof arg1 === 'string' && typeof arg2 === 'string';
   }
 }
 
