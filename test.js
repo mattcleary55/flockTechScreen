@@ -14,14 +14,16 @@ describe('myFunction', () => {
     ).should.equal(49);
   });
 
-  it('If the levels of nesting, or the lengths of the strings/arrays do not match, return -1', () => {
-    myFunction(
-      ['I', ['love'], [['awesome']], 'drones'],
-      ['I', ['hate'], [[['magenta']]], 'drains']
-    ).should.equal(-1);
-
+  it('If the lengths of the strings/arrays do not match, return -1', () => {
     myFunction(
       ['I', ['adore'], [[['red']]], 'drones'],
+      ['I', ['hate'], [[['magenta']]], 'drains']
+    ).should.equal(-1);
+  });
+
+  it('If the levels of nesting do not match, return -1', () => {
+    myFunction(
+      ['I', ['love'], [['awesome']], 'drones'],
       ['I', ['hate'], [[['magenta']]], 'drains']
     ).should.equal(-1);
   });
