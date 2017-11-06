@@ -1,4 +1,4 @@
-# Flock Tech Screen
+# Flock Tech Screen - Completed
 In a language of your choice, please write a program which accepts as input two arbitrarily nested arrays of strings, and returns the sum of the number of necessary one character substitutions multiplied by 2 to the power of the depth of nesting at which substitution must occur
 
 For example:
