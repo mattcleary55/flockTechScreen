@@ -20,7 +20,7 @@ If the lengths of any fragment differ, return `-1` so:
 
 ## Questions
   ### 1) What assumptions did you make?
-  Key assumption was that I'd only ever be dealing with strings and arrays.
+  Key assumptions was that I'd only ever be dealing with strings and arrays and that I'd only ever be dealing with two arguments.
   ### 3) What is the Big O of your solution? Please justify your answer.
   O(KN^M) Where K is the is the max size of the strings (elements) in the array. N is the length of the array. M is the depth of nested arrays. Each nested level could have a bunch more nested lists, hence the exponent.
   
