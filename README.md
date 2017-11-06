@@ -30,7 +30,7 @@ If the lengths of any fragment differ, return `-1` so:
   I wrote a small suite of tests to test for both sucessful and non-successful cases. I used Mocha and Chai to do so.
 The test I wrote made sure that: 
 1) If the levels of nesting or lengths of the strings did not match, it would return '-1';
-2) If the lengths of the fragments differ, it woudl return '-1';
+2) If the lengths of the fragments differ, it would return '-1';
 3) That otherwise, it would return the sum of the number of necessary one character substitutions multiplied by 2 to the power of the depth of nesting at which substitution must occur. 
 
 Ideally I'd like to have used an external library to randomly generate strings.
