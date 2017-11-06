@@ -5,13 +5,9 @@
 */
 
 const myFunction = (arr1, arr2) => {
-  let total = 0;
-
   /* Third parameter is the level of nesting.
   It begins at -1 as initially, this function will call itself before diving deeper into the array.*/
-  worldsWorstFunction(arr1, arr2, -1);
-
-  return total;
+  return worldsWorstFunction(arr1, arr2, -1);
 
   /* This function uses recursion to simulatenously work through the arrays.
   If an element is an array itself, it will call itself and dive deeper
@@ -19,20 +15,23 @@ const myFunction = (arr1, arr2) => {
   their lengths don't match, the fail condition will be set: total = -1
   */
   function worldsWorstFunction(arg1, arg2, nestLvl) {
-    if (checkIfBothArrays(arg1, arg2) && checkLengthsMatch(arg1, arg2)) {
+    if (checkIfBothStrings(arg1, arg2) && checkLengthsMatch(arg1, arg2)) {
+      // Count how many character substitutions are needed to match strings
+      let subCount = compareStrings(arg1, arg2);
+      // Multiply the number of character subtitutions by 2 to the power of the depth of nesting
+      // then add to total
+      return subCount * Math.pow(2, nestLvl);
+    } else if (checkIfBothArrays(arg1, arg2) && checkLengthsMatch(arg1, arg2)) {
+      let total = 0;
       // As array nesting will deepen, increment nestLvl, ready for next call
       nestLvl++;
       for (let i = 0; i < arg1.length; i++) {
-        if (total === -1) break;
-        worldsWorstFunction(arg1[i], arg2[i], nestLvl);
+        let result = worldsWorstFunction(arg1[i], arg2[i], nestLvl);
+        if (result === -1) return result;
+        else total += result;
       }
-    } else if (checkIfBothStrings(arg1, arg2) && checkLengthsMatch(arg1, arg2)) {
-      // Count how many character substitutions are needed to match strings
-      let diffCount = compareStrings(arg1, arg2);
-      // Multiply the number of character subtitutions by 2 to the power of the depth of nesting
-      // then add to total
-      total += diffCount * Math.pow(2, nestLvl);
-    } else total = -1;
+      return total;
+    } else return -1;
   }
 };
 
