@@ -1,5 +1,5 @@
 /*
-  This programaccepts as input two arbitrarily nested arrays of strings.
+  This program accepts as input two arbitrarily nested arrays of strings.
   It returns the sum of the number of necessary one character substitutions
   multiplied by 2 to the power of the depth of nesting at which substitution must occur
 */
