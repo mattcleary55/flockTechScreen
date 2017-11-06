@@ -1,5 +1,5 @@
 /*
-  This program which accepts as input two arbitrarily nested arrays of strings.
+  This programaccepts as input two arbitrarily nested arrays of strings.
   It returns the sum of the number of necessary one character substitutions
   multiplied by 2 to the power of the depth of nesting at which substitution must occur
 */
@@ -7,7 +7,7 @@
 const myFunction = (arr1, arr2) => {
   let total = 0;
 
-  /* third parameter is the level of nesting.
+  /* Third parameter is the level of nesting.
   It begins at -1 as initially, this function will call itself before diving deeper into the array.*/
   worldsWorstFunction(arr1, arr2, -1);
 
