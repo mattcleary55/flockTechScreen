@@ -9,7 +9,7 @@ const myFunction = (arr1, arr2) => {
   It begins at -1 as initially, this function will call itself before diving deeper into the array.*/
   return worldsWorstFunction(arr1, arr2, -1);
 
-  /* This function uses recursion to simulatenously work through the arrays.
+  /* This function uses recursion to simultaneously work through the arrays.
   If an element is an array itself, it will call itself and dive deeper
   into the nested array. If the arguments aren't both strings or arrays OR
   their lengths don't match, the fail condition will be set: total = -1
