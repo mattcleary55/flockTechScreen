@@ -23,10 +23,9 @@ const myFunction = (arr1, arr2) => {
       return subCount * Math.pow(2, nestLvl);
     } else if (checkIfBothArrays(arg1, arg2) && checkLengthsMatch(arg1, arg2)) {
       let total = 0;
-      // As array nesting will deepen, increment nestLvl, ready for next call
-      nestLvl++;
       for (let i = 0; i < arg1.length; i++) {
-        let result = worldsWorstFunction(arg1[i], arg2[i], nestLvl);
+         // As array nesting will deepen, increment nestLvl, ready for next call
+        let result = worldsWorstFunction(arg1[i], arg2[i], nestLvl + 1);
         if (result === -1) return result;
         else total += result;
       }
